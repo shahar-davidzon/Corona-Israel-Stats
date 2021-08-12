@@ -1,0 +1,299 @@
+/* Big tablets: from 1041px to 1200px  */
+@media only screen and (max-width: 1200px) {
+    .column {
+        float: left;
+        width: 30%;
+        padding-left:  7px;
+        padding-right:  7px;
+        padding-top:  7px;
+        padding-bottom:  13px;
+        margin-top: 2rem;
+        margin-right: 3rem;
+        margin-left: 4rem;
+     }
+     .main-text-wp,
+     .date,
+     .population
+      {
+        position: relative;
+        font-size: 12px;
+        left: 11rem;
+        width: 50%;
+        top: 1.5rem;
+      }
+      .active-1,
+      .cases-1,
+      .recoveries-1,
+      .deaths-1,
+      .active-2,
+      .cases-2,
+      .recoveries-2,
+      .deaths-2,
+      .cases-3,
+      .deaths-3,
+      .recoveries-3,
+      .active-3,
+      .cases-4,
+      .deaths-4,
+      .recoveries-4,
+      .active-4  {
+          font-size: 8.18px;
+      }
+     
+      .linkedin-logo {
+       font-size: 1.5rem;
+       margin-left: 10rem;
+       bottom: 0.4rem;
+    }
+      .author {
+          top: 0.7rem;
+          font-size: 13px;
+      }
+      .links {
+          top:1.7rem;
+          right: 16rem;
+          width: 10%;
+      }
+     
+    
+}
+
+/* Small tablets to big tablets: from 861px to 1040px - ipad */
+@media only screen and (max-width: 1040px) {
+    .linkedin-logo {
+        font-size: 1rem;
+        margin-left: 9rem;
+        bottom: 0.3rem ;
+     }
+       .author {
+           top: 0.6rem;
+           font-size: 12px;
+       }
+   .links {
+       right: 16rem;
+   }
+   
+   .column {
+    float: left;
+    width: 25%;
+    padding-left:  5px;
+    padding-right:  5px;
+    padding-top:  5px;
+    padding-bottom:  9px;
+    margin-top: 2rem;
+    margin-right: 3rem;
+    margin-left: 4rem;
+  }
+  .head {
+      font-size: 12px;
+  }
+  
+  .active-1,
+  .cases-1,
+  .recoveries-1,
+  .deaths-1,
+  .active-2,
+  .cases-2,
+  .recoveries-2,
+  .deaths-2,
+  .cases-3,
+  .deaths-3,
+  .recoveries-3,
+  .active-3,
+  .cases-4,
+  .deaths-4,
+  .recoveries-4,
+  .active-4  {
+      font-size: 6.5px;
+  }
+
+  .cases-3,
+  .deaths-3,
+  .active-3  {
+    margin-left: 0.5rem ;
+  }
+  .recoveries-3 {
+    margin-left: 0rem;
+  }
+
+  .cases-4,
+  .deaths-4,
+  .active-4 {
+    margin-right: 0rem;
+  }
+
+  .recoveries-4 {
+    margin-left: -0.6rem;
+  }
+  .icon {
+    font-size: 1.3rem;
+    margin-top: 0.4rem;
+  }
+  .main-text-wp,
+  .date,
+  .population
+    {
+        position: relative;
+        font-size: 8.5px;
+        left: 8rem;
+        width: 50%;
+    }
+    .dark {
+        font-size: 1.5rem;
+      }
+      .switch {
+        position: absolute;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+        margin-left: 4.5rem;
+        top: 2.4rem;
+      }
+      .slider:before {
+       
+        height: 15px;
+        width: 15px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+      }
+ 
+}
+
+
+
+/* Small phones to small tablets: from 491px to 861px - big iphone, tablets*/
+@media only screen and (max-width: 866px) {
+    .column {
+        width:70%;
+        margin-top: 2rem;
+        margin-right: 4rem;
+        margin-left: 4rem;
+        margin-bottom: 2rem;
+      }
+  .active-1,
+  .cases-1,
+  .recoveries-1,
+  .deaths-1,
+  .active-2,
+  .cases-2,
+  .recoveries-2,
+  .deaths-2,
+  .cases-3,
+  .deaths-3,
+  .recoveries-3,
+  .active-3,
+  .cases-4,
+  .deaths-4,
+  .recoveries-4,
+  .active-4  {
+      font-size: 11px;
+  }
+
+  .recoveries-3 {
+    margin-left: 0.5rem;
+  }
+
+    .main-text-wp,
+    .date,
+    .population {
+            position: relative;
+            font-size: 7px;
+            left: 8rem;
+            width: 50%;
+        }
+        .linkedin-logo {
+            font-size: 1rem;
+            margin-left: 7rem;
+            bottom: 0.2rem ;
+         }
+           .author {
+               top: 0.6rem;
+               font-size: 9px;
+           }
+       .links {
+           position: static;
+           float: none;
+           top: 4.5rem;
+           margin-left: 1.5rem;
+       }
+       .dark {
+        font-size: 1rem;
+        top: 2.5rem;
+      }
+      .switch {
+        position: absolute;
+        display: inline-block;
+        width: 42px;
+        height: 19px;
+        margin-left: 3.75rem;
+        top: 2.4rem;
+      }
+      .slider:before {
+        height: 10px;
+        width: 10px;
+        left: 2px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+      }
+      .canvasjs-chart-container {
+        top: 55rem;
+      }
+   .canvasjs-chart-credit {
+       display: none;
+
+   }
+    
+  
+}
+/* Iphone X*/
+@media only screen and (max-width: 540px) {
+   .link {
+     padding: 4px 10px;
+   }
+   .linkedin-logo {
+     margin-left: 8rem;
+   }
+   .linkedin-logo {
+    font-size: 0.7rem;
+    margin-left: 6.5rem;
+    bottom: 0.2rem ;
+ }
+   .author {
+       top: 0.6rem;
+       font-size: 7px;
+   }
+   .active-1,
+   .cases-1,
+   .recoveries-1,
+   .deaths-1,
+   .active-2,
+   .cases-2,
+   .recoveries-2,
+   .deaths-2,
+   .cases-3,
+   .deaths-3,
+   .recoveries-3,
+   .active-3,
+   .cases-4,
+   .deaths-4,
+   .recoveries-4,
+   .active-4  {
+       font-size: 7.5px;
+   }
+   a:hover,
+   a:hover .links,
+   a:hover .linkedin-logo,
+   a:hover .author {
+    color: initial;
+    background-color: initial;
+    transition-duration: 0rem;
+   }
+   .canvasjs-chart-credit {
+    top: 355px !important;
+    right: -85px !important;
+   
+  }
+}

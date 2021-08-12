@@ -1,0 +1,121 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Corona stats for israel - made by Shahar Davidzon">
+  <meta name="image" property="og:image" class="logo3" content="https://corona-israel-stats.netlify.app/logo4.jpg">
+  <meta name="author" content="Shahar Davidzon">
+
+  <meta charset="utf-8">
+  <title>COVID-19 ISRAEL STATS</title>
+  <link rel="stylesheet" type="text/css" href="src/css/normalize.css">
+  <link id="myStyleSheet" rel="stylesheet" type="text/css" href="src/css/style.css">
+  <link rel="stylesheet" type="text/css" href="src/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="src/css/queries.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300;1,400" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="src/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="src/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="src/img/favicon-16x16.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#44a2bc">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#090808">
+</head>
+
+<body class="body" id="body" style="display: none;">
+  <header>
+    <div class="main-text-wp animated pulse">
+      <h1>COVID-19 ISRAEL STATS</h1>
+    </div>
+
+    <div class="date" id="date">
+      <h3>Date</h3>
+    </div>
+
+    <h3 class="population">POPULATION: 9,200,000</h3>
+
+    <div class="links">
+      <a class="link" href="https://www.linkedin.com/in/shahar-davidzon" target="_blank">
+        <div class="author">Made by Shahar Davidzon</div>
+        <ion-icon class="linkedin-logo" name="logo-linkedin"></ion-icon>
+      </a>
+    </div>
+
+    <div class="dark-theme">
+      <ion-icon class="dark" name="moon"></ion-icon>
+    </div>
+
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span id="toggle" class="slider round"></span>
+    </label>
+
+  </header>
+  <div class="row">
+    <div class="column">
+      <ion-icon class="icon" name="medkit"></ion-icon>
+      <h2 class="head">TOTAL CASES</h2>
+      <p class="cases">--</p>
+      <div class="new-cases">
+        <span class="cases-1"></span>
+        <span class="cases-2">New Cases today</span>
+        <span class="cases-3"></span>
+        <span class="cases-4">Cases Rate</span>
+      </div>
+    </div>
+    <div class="column">
+      <ion-icon class="icon" name="skull"></ion-icon>
+      <h2 class="head">TOTAL DEATHS</h2>
+      <p class="deaths">--</p>
+      <div class="new-deaths">
+        <span class="deaths-1"></span>
+        <span class="deaths-2">New Deaths today</span>
+        <span class="deaths-3"></span>
+        <span class="deaths-4">Death Rate</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <ion-icon class="icon" name="fitness"></ion-icon>
+      <h2 class="head">TOTAL RECOVERIES</h2>
+      <p class="recoveries">--</p>
+      <div class="new-recoveries">
+        <span class="recoveries-1"></span>
+        <span class="recoveries-2">New Recoveries today</span>
+        <span class="recoveries-3"></span>
+        <span class="recoveries-4">Recoveries Rate</span>
+      </div>
+    </div>
+    <div class="column">
+      <ion-icon class="icon" name="people"></ion-icon>
+      <h2 class="head">ACTIVE CASES</h2>
+      <p class="active">--</p>
+      <div class="new-active">
+        <span class="active-1"></span>
+        <span class="active-2">Active Cases today</span>
+        <span class="active-3"></span>
+        <span class="active-4">Active Rate</span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="chartContainer1" style="position: relative; max-width: 1250px; margin-left: 3rem; margin-right: 2rem;"></div>
+  <div id="chartContainer2"
+    style="position: relative; max-width: 1250px; margin-left: 3rem; margin-right: 2rem; top:33rem;"></div>
+  <div id="chartContainer3"
+    style="position: relative; max-width: 1250px; margin-left: 3rem; margin-right: 2rem; top:65rem;"></div>
+
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <script src="src/js/canvasjs.min.js"></script>
+  <script src="src/index.js"></script>
+</body>
+
+</html>
