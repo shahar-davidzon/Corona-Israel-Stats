@@ -1,6 +1,6 @@
 # Corona Israel Stats project
 
-## Web app that updates daily covid 19 stats in Israel
+## Responsive web app that updates daily covid 19 stats in Israel
 
 ### Built with:
  <div>
