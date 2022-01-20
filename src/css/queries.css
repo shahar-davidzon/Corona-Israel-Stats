@@ -1,5 +1,5 @@
 /* Big tablets: from 1041px to 1200px  */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1288px) {
     .column {
         float: left;
         width: 30%;
@@ -9,17 +9,17 @@
         padding-bottom:  13px;
         margin-top: 2rem;
         margin-right: 3rem;
-        margin-left: 4rem;
+        margin-left: 9rem;
      }
      .main-text-wp,
      .date,
-     .population
+     .population,
+     .population-world
       {
         position: relative;
         font-size: 12px;
-        left: 11rem;
+        left: 18.5rem;
         width: 50%;
-        top: 1.5rem;
       }
       .active-1,
       .cases-1,
@@ -36,7 +36,15 @@
       .cases-4,
       .deaths-4,
       .recoveries-4,
-      .active-4  {
+      .active-4,
+      .cases-world-1,
+      .cases-world-3,
+      .deaths-world-1,
+      .deaths-world-3,
+      .recoveries-world-1,
+      .recoveries-world-3,
+      .active-world-1,
+      .active-world-3  {
           font-size: 8.18px;
       }
      
@@ -51,7 +59,7 @@
       }
       .links {
           top:1.7rem;
-          right: 16rem;
+          right: 10rem;
           width: 10%;
       }
      
@@ -59,7 +67,7 @@
 }
 
 /* Small tablets to big tablets: from 861px to 1040px - ipad */
-@media only screen and (max-width: 1040px) {
+@media only screen and (max-width: 1095px) {
     .linkedin-logo {
         font-size: 1rem;
         margin-left: 9rem;
@@ -70,7 +78,7 @@
            font-size: 12px;
        }
    .links {
-       right: 16rem;
+       right: 9rem;
    }
    
    .column {
@@ -82,7 +90,7 @@
     padding-bottom:  9px;
     margin-top: 2rem;
     margin-right: 3rem;
-    margin-left: 4rem;
+    margin-left: 9rem;
   }
   .head {
       font-size: 12px;
@@ -103,16 +111,28 @@
   .cases-4,
   .deaths-4,
   .recoveries-4,
-  .active-4  {
+  .active-4,
+  .cases-world-1,
+  .cases-world-3,
+  .deaths-world-1,
+  .deaths-world-3,
+  .recoveries-world-1,
+  .recoveries-world-3,
+  .active-world-1,
+  .active-world-3   {
       font-size: 6.5px;
   }
 
   .cases-3,
   .deaths-3,
-  .active-3  {
+  .active-3,
+  .cases-world-3,
+  .deaths-world-3,
+  .active-world-3  {
     margin-left: 0.5rem ;
   }
-  .recoveries-3 {
+  .recoveries-3,
+  .recoveries-world-3 {
     margin-left: 0rem;
   }
 
@@ -131,11 +151,12 @@
   }
   .main-text-wp,
   .date,
-  .population
+  .population,
+  .population-world
     {
         position: relative;
         font-size: 8.5px;
-        left: 8rem;
+        left: 15rem;
         width: 50%;
     }
     .dark {
@@ -164,7 +185,7 @@
 
 
 /* Small phones to small tablets: from 491px to 861px - big iphone, tablets*/
-@media only screen and (max-width: 866px) {
+@media only screen and (max-width: 915px) {
     .column {
         width:70%;
         margin-top: 2rem;
@@ -187,20 +208,40 @@
   .cases-4,
   .deaths-4,
   .recoveries-4,
-  .active-4  {
+  .active-4,
+  .cases-world-1,
+  .cases-world-3,
+  .deaths-world-1,
+  .deaths-world-3,
+  .recoveries-world-1,
+  .recoveries-world-3,
+  .active-world-1,
+  .active-world-3 
+    {
       font-size: 11px;
   }
-
-  .recoveries-3 {
-    margin-left: 0.5rem;
+  .cases-3,
+  .cases-world-3,
+  .deaths-3,
+  .deaths-world-3,
+  .recoveries-3,
+  .recoveries-world-3 ,
+  .active-3,
+  .active-world-3{
+    margin-left: 5rem;
   }
-
+  
+  .recoveries-3,
+  .recoveries-world-3 {
+    margin-left: 4.2rem;
+  }
     .main-text-wp,
     .date,
-    .population {
+    .population,
+    .population-world {
             position: relative;
             font-size: 7px;
-            left: 8rem;
+            left: 7rem;
             width: 50%;
         }
         .linkedin-logo {
@@ -245,11 +286,11 @@
        display: none;
 
    }
-    
+   
   
 }
 /* Iphone X*/
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 588px) {
    .link {
      padding: 4px 10px;
    }
@@ -280,9 +321,33 @@
    .cases-4,
    .deaths-4,
    .recoveries-4,
-   .active-4  {
+   .active-4,
+   .cases-world-1,
+   .cases-world-3,
+   .deaths-world-1,
+   .deaths-world-3,
+   .recoveries-world-1,
+   .recoveries-world-3,
+   .active-world-1,
+   .active-world-3   {
        font-size: 7.5px;
+       
    }
+   .cases-3,
+  .cases-world-3,
+  .deaths-3,
+  .deaths-world-3,
+  .recoveries-3,
+  .recoveries-world-3 ,
+  .active-3,
+  .active-world-3{
+    margin-left: 2rem;
+  }
+  
+  .recoveries-3,
+  .recoveries-world-3 {
+    margin-left: 1rem;
+  }
    a:hover,
    a:hover .links,
    a:hover .linkedin-logo,
@@ -296,4 +361,107 @@
     right: -85px !important;
    
   }
+  
+
+}
+
+ /* Very small phones */
+@media only screen and (max-width: 401px) {
+  .active-1,
+   .cases-1,
+   .recoveries-1,
+   .deaths-1,
+   .active-2,
+   .cases-2,
+   .recoveries-2,
+   .deaths-2,
+   .cases-3,
+   .deaths-3,
+   .recoveries-3,
+   .active-3,
+   .cases-4,
+   .deaths-4,
+   .recoveries-4,
+   .active-4,
+   .cases-world-1,
+   .cases-world-3,
+   .deaths-world-1,
+   .deaths-world-3,
+   .recoveries-world-1,
+   .recoveries-world-3,
+   .active-world-1,
+   .active-world-3   {
+       font-size: 5.5px;
+       
+   }
+   .active-1,
+   .cases-1,
+   .recoveries-1,
+   .deaths-1,
+   .cases-3,
+   .deaths-3,
+   .recoveries-3,
+   .active-3,
+   .cases-world-1,
+   .cases-world-3,
+   .deaths-world-1,
+   .deaths-world-3,
+   .recoveries-world-1,
+   .recoveries-world-3,
+   .active-world-1,
+   .active-world-3 {
+
+     padding: 7px;
+     
+     margin-right: 0.2rem;
+     
+   }
+  
+  .recoveries-3,
+  .recoveries-world-3 {
+    margin-right: 0.6rem;
+  }
+  .active-1,
+   .cases-1,
+   .recoveries-1,
+   .deaths-1,
+   .cases-3,
+   .deaths-3,
+   .recoveries-3,
+   .active-3,
+   .cases-world-1,
+   .cases-world-3,
+   .deaths-world-1,
+   .deaths-world-3,
+   .recoveries-world-1,
+   .recoveries-world-3,
+   .active-world-1,
+   .active-world-3 {
+     margin-left: 0;
+   }
+
+   .cases,
+  .deaths,
+  .recoveries,
+  .active,
+  .cases-world,
+  .deaths-world,
+  .recoveries-world,
+  .active-world {
+    font-size: 20px;
+  
+  }
+  .main-text-wp,
+    .date,
+    .population,
+    .population-world {
+            position: relative;
+            font-size: 6.5px;
+            left: 6rem;
+            width: 50%;
+        }
+  
+        .canvasjs-chart-toolbar button {
+          max-height: 21px;
+        }
 }

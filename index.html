@@ -26,6 +26,7 @@
 </head>
 
 <body class="body" id="body" style="display: none;">
+
   <header>
     <div class="main-text-wp animated pulse">
       <h1>COVID-19 ISRAEL STATS</h1>
@@ -35,7 +36,7 @@
       <h3>Date</h3>
     </div>
 
-    <h3 class="population">POPULATION: 9,200,000</h3>
+    <h3 class="population"></h3>
 
     <div class="links">
       <a class="link" href="https://www.linkedin.com/in/shahar-davidzon" target="_blank">
@@ -54,6 +55,7 @@
     </label>
 
   </header>
+
   <div class="row">
     <div class="column">
       <ion-icon class="icon" name="medkit"></ion-icon>
@@ -66,6 +68,8 @@
         <span class="cases-4">Cases Rate</span>
       </div>
     </div>
+
+
     <div class="column">
       <ion-icon class="icon" name="skull"></ion-icon>
       <h2 class="head">TOTAL DEATHS</h2>
@@ -92,26 +96,97 @@
         <span class="recoveries-4">Recoveries Rate</span>
       </div>
     </div>
+
+
     <div class="column">
       <ion-icon class="icon" name="people"></ion-icon>
       <h2 class="head">ACTIVE CASES</h2>
       <p class="active">--</p>
       <div class="new-active">
         <span class="active-1"></span>
-        <span class="active-2">Active Cases today</span>
+        <span class="active-2">Severe Cases</span>
         <span class="active-3"></span>
-        <span class="active-4">Active Rate</span>
+        <span class="active-4">Severe Rate</span>
+      </div>
+    </div>
+  </div>
+
+
+  <header>
+    <div class="main-text-wp animated pulse">
+      <h1>COVID-19 WORLD STATS</h1>
+    </div>
+    <h3 class="population-world"></h3>
+  </header>
+
+
+  <div class="row">
+    <div class="column">
+      <ion-icon class="icon" name="medkit"></ion-icon>
+      <h2 class="head">TOTAL CASES</h2>
+      <p class="cases-world">--</p>
+      <div class="new-cases">
+        <span class="cases-world-1"></span>
+        <span class="cases-2">New Cases today</span>
+        <span class="cases-world-3"></span>
+        <span class="cases-4">Cases Rate</span>
+      </div>
+    </div>
+
+
+    <div class="column">
+      <ion-icon class="icon" name="skull"></ion-icon>
+      <h2 class="head">TOTAL DEATHS</h2>
+      <p class="deaths-world">--</p>
+      <div class="new-deaths">
+        <span class="deaths-world-1"></span>
+        <span class="deaths-2">New Deaths today</span>
+        <span class="deaths-world-3"></span>
+        <span class="deaths-4">Death Rate</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <ion-icon class="icon" name="fitness"></ion-icon>
+      <h2 class="head">TOTAL RECOVERIES</h2>
+      <p class="recoveries-world">--</p>
+      <div class="new-recoveries">
+        <span class="recoveries-world-1"></span>
+        <span class="recoveries-2">New Recoveries today</span>
+        <span class="recoveries-world-3"></span>
+        <span class="recoveries-4">Recoveries Rate</span>
+      </div>
+    </div>
+
+
+    <div class="column">
+      <ion-icon class="icon" name="people"></ion-icon>
+      <h2 class="head">ACTIVE CASES</h2>
+      <p class="active-world">--</p>
+      <div class="new-active">
+        <span class="active-world-1"></span>
+        <span class="active-2">Severe Cases</span>
+        <span class="active-world-3"></span>
+        <span class="active-4">Severe Rate</span>
       </div>
     </div>
   </div>
 
 
 
-  <div id="chartContainer1" style="position: relative; max-width: 1250px; margin-left: 3rem; margin-right: 2rem;"></div>
+  <div id="chartContainer1" style="position: relative; max-width: 1250px; margin-left: 3rem; margin-right: 2rem;">
+  </div>
   <div id="chartContainer2"
     style="position: relative; max-width: 1250px; margin-left: 3rem; margin-right: 2rem; top:33rem;"></div>
   <div id="chartContainer3"
     style="position: relative; max-width: 1250px; margin-left: 3rem; margin-right: 2rem; top:65rem;"></div>
+
+
+
+
 
   <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   <script src="src/js/canvasjs.min.js"></script>

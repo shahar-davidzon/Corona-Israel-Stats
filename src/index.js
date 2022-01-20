@@ -17,7 +17,7 @@ const fullDate = () => {
   day = now.getDate();
   months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   year = now.getFullYear();
-  now = `Update daily: &nbsp${months[now.getMonth()]} ${day},&nbsp ${year}`;
+  now = `Updated daily: &nbsp${months[now.getMonth()]} ${day},&nbsp ${year}`;
 
   document.getElementById('date').innerHTML = now;
 
@@ -31,64 +31,88 @@ async function getData() {
     method: 'GET',
     redirect: 'follow'
   };
-  
 
-   try {
-    const result = await fetch("https://api.covid19api.com/live/country/israel/status/confirmed", requestOptions);
+
+  try {
+    const result = await fetch("https://disease.sh/v3/covid-19/countries/israel?yesterday=true&strict=true", requestOptions);
 
     const data = await result.json();
-    
+    //console.log(data);
 
-    var totalCases;
-    var totalDeaths;
-    var totalRecoveries;
-    var totalActive;
-    var newCases;
-    var newDeaths;
-    var newRecoveries;
-    var newActive;;
+    const res = await fetch("https://disease.sh/v3/covid-19/all", requestOptions);
 
-    for (var i = 1; i <= data.length -1; i++) {
-        totalCases = data[i].Confirmed;
-        totalDeaths = data[i].Deaths;
-        totalRecoveries = data[i].Recovered;
-        totalActive = data[i].Active;
-        newCases = data[i].Confirmed - data[ i - 1 ].Confirmed;
-        newDeaths = data[i].Deaths - data[ i - 1 ].Deaths;
-        newRecoveries  = data[i].Recovered - data[ i - 1 ].Recovered;
-        newActive = newCases - (newRecoveries + newDeaths);
-      }
+    const dataWorld = await res.json();
 
+    //Israel data
+    const population = data.population;
+    const totalCases = data.cases;
+    const totalDeaths = data.deaths;
+    const totalActive = data.active;
+    const totalRecoveries = data.recovered;
+
+    const newCases = data.todayCases;
+    const newDeaths = data.todayDeaths;
+    const newRecoveries = data.todayRecovered;
+    const severeCases = data.critical;
+
+    const casesRate = totalCases / population * 100;
     const deathRate = totalDeaths / totalCases * 100;
     const recoveriesRate = totalRecoveries / totalCases * 100;
-    const casesRate = totalCases / 9200000 * 100;
-    const activeRate = totalActive / 9200000 * 100;
-
+    const severeRate = severeCases / totalActive * 100;
     
 
-    document.querySelector('.cases').innerHTML = totalCases;
-    document.querySelector('.deaths').innerHTML = totalDeaths;
-    totalRecoveries === 0 ? document.querySelector('.recoveries').innerHTML = 'N/A' : document.querySelector('.recoveries').innerHTML = totalRecoveries;
-    totalActive > 300000 ? document.querySelector('.active').innerHTML = 'N/A' : document.querySelector('.active').innerHTML = totalActive;
+    //World data
+    const worldPopulation = dataWorld.population;
+    const totalWorldCases = dataWorld.cases;
+    const totalWorldDeaths = dataWorld.deaths;
+    const totalWorldActive = dataWorld.active;
+    const totalWorldRecoveries = dataWorld.recovered;
 
-    document.querySelector('.cases-1').innerHTML = newCases;
-    document.querySelector('.deaths-1').innerHTML = newDeaths;
-    newRecoveries === 0 ? document.querySelector('.recoveries-1').innerHTML = 'N/A' : document.querySelector('.recoveries-1').innerHTML = newRecoveries;
-    newRecoveries === 0 ? document.querySelector('.active-1').innerHTML = 'N/A' : document.querySelector('.active-1').innerHTML = newActive;
+    const newWorldCases = dataWorld.todayCases;
+    const newWorldDeaths = dataWorld.todayDeaths;
+    const newWorldRecoveries = dataWorld.todayRecovered;
+    const severeWorldCases = dataWorld.critical;
 
-    document.querySelector('.cases-3').innerHTML = casesRate.toFixed(2)+'%';
-    document.querySelector('.deaths-3').innerHTML = deathRate.toFixed(2)+'%';
-    totalRecoveries === 0 ? document.querySelector('.recoveries-3').innerHTML = 'N/A' : document.querySelector('.recoveries-3').innerHTML = recoveriesRate.toFixed(2)+'%';
-    totalActive > 300000 ? document.querySelector('.active-3').innerHTML = 'N/A' : document.querySelector('.active-3').innerHTML = activeRate.toFixed(3)+'%';
+    const casesWorldRate = totalWorldCases / worldPopulation * 100;
+    const deathWorldRate = totalWorldDeaths / totalWorldCases * 100;
+    const recoveriesWorldRate = totalWorldRecoveries / totalWorldCases * 100;
+    const severeWorldRate = severeWorldCases / totalWorldActive * 100;
 
-    if( newCases === 0 && newDeaths === 0 && newRecoveries === 0 ) {
-      document.querySelector('.cases-1').innerHTML = 'N/A';
-      document.querySelector('.deaths-1').innerHTML = 'N/A';
-      document.querySelector('.recoveries-1').innerHTML = 'N/A';
-      document.querySelector('.active-1').innerHTML = 'N/A';
-
-    }
     
+    //ISRAEL 
+    document.querySelector('.population').innerHTML = "Population: " + population.toLocaleString();
+    document.querySelector('.cases').innerHTML = totalCases.toLocaleString();
+    document.querySelector('.deaths').innerHTML = totalDeaths.toLocaleString();
+    document.querySelector('.recoveries').innerHTML = totalRecoveries.toLocaleString();
+    document.querySelector('.active').innerHTML = totalActive.toLocaleString();
+
+    document.querySelector('.cases-1').innerHTML = newCases.toLocaleString();
+    document.querySelector('.deaths-1').innerHTML = newDeaths.toLocaleString()
+    document.querySelector('.recoveries-1').innerHTML = newRecoveries.toLocaleString();
+    document.querySelector('.active-1').innerHTML = severeCases.toLocaleString();
+
+    document.querySelector('.cases-3').innerHTML = casesRate.toFixed(2) + '%';
+    document.querySelector('.deaths-3').innerHTML = deathRate.toFixed(2) + '%';
+    document.querySelector('.recoveries-3').innerHTML = recoveriesRate.toFixed(2) + '%';
+    document.querySelector('.active-3').innerHTML = severeRate.toFixed(2) + '%';
+
+
+    //WORLD
+    document.querySelector('.population-world').innerHTML = "Population: " + worldPopulation.toLocaleString();
+    document.querySelector('.cases-world').innerHTML = totalWorldCases.toLocaleString();
+    document.querySelector('.deaths-world').innerHTML = totalWorldDeaths.toLocaleString();
+    document.querySelector('.recoveries-world').innerHTML = totalWorldRecoveries.toLocaleString();
+    document.querySelector('.active-world').innerHTML = totalWorldActive.toLocaleString();
+    
+    document.querySelector('.cases-world-1').innerHTML = newWorldCases.toLocaleString();
+    document.querySelector('.deaths-world-1').innerHTML = newWorldDeaths.toLocaleString()
+    document.querySelector('.recoveries-world-1').innerHTML = newWorldRecoveries.toLocaleString();
+    document.querySelector('.active-world-1').innerHTML = severeWorldCases.toLocaleString();
+
+    document.querySelector('.cases-world-3').innerHTML = casesWorldRate.toFixed(2) + '%';
+    document.querySelector('.deaths-world-3').innerHTML = deathWorldRate.toFixed(2) + '%';
+    document.querySelector('.recoveries-world-3').innerHTML = recoveriesWorldRate.toFixed(2) + '%';
+    document.querySelector('.active-world-3').innerHTML = severeWorldRate.toFixed(2) + '%';
 
   } catch (error) {
     alert('Data is unavailable right now \nPlease try again in a few minutes')
@@ -96,18 +120,20 @@ async function getData() {
   // API request for - "By Country Live" - CASES
   const result2 = await fetch("https://api.covid19api.com/country/israel/status/confirmed/live", requestOptions);
   const data2 = await result2.json();
-  
-   
+
+
 
   // API request for - "By Country Live" - DEATHS
   const result3 = await fetch("https://api.covid19api.com/country/israel/status/deaths/live", requestOptions);
   const data3 = await result3.json();
+
+
+  // API request for - Full vaccinations data
+  const result4 = await fetch("https://disease.sh/v3/covid-19/vaccine/coverage/countries/Israel?lastdays=all&fullData=true", requestOptions);
+  const data4 = await result4.json();
+  const data4a = data4.timeline;
   
 
-  // API request for - "By Country Live" - RECOVERIES
-  const result4 = await fetch("https://api.covid19api.com/country/israel/status/recovered/live", requestOptions);
-  const data4 = await result4.json();
-  
 
 
 
@@ -122,7 +148,7 @@ async function getData() {
       if (data2[i].Cases === 0 && i > 30) {
 
         data2[i].Cases = data2[i - 1].Cases;
-        
+
       }
 
       dataPoints.push({ x: new Date(data2[i].Date), y: Number(data2[i].Cases) });
@@ -136,14 +162,13 @@ async function getData() {
         animationDuration: 3000,
         theme: "light2",
         title: {
-
-
-          padding: 12,
+          horizontalAlign: "center",
+          verticalAlign: "top",
+          padding: 15,
           margin: 3.5,
-          fontSize: 26,
           fontFamily: "arial",
           fontStyle: "italic",
-          text: "Total Cases"
+          text: "Total Cases in Israel"
         },
         toolTip: {
           content: "<span style='\"' font-size: 10px;'\"'>{x}</span> <br/>{name}: {y}",
@@ -159,8 +184,11 @@ async function getData() {
             if (e.value === 0) {
               return e.value;
             }
-            else {
+            else if (e.value < 1000000) {
               return CanvasJS.formatNumber(e.value, "#,##0,.k");
+            }
+            else {
+              return CanvasJS.formatNumber(e.value, "#,###,,.##M");
             }
           },
           stripLines: [{
@@ -172,7 +200,7 @@ async function getData() {
             labelBackgroundColor: "transparent",
             labelFontColor: "transparent",
           }]
-         
+
         },
         axisX: {
           labelAngle: -15
@@ -266,11 +294,11 @@ async function getData() {
       if (data3[i].Cases === 0 && i > 1) {
 
         data3[i].Cases = data3[i - 1].Cases;
-         
+
       }
 
       dataPoints.push({ x: new Date(data3[i].Date), y: Number(data3[i].Cases) });
-      
+
     }
 
 
@@ -283,13 +311,13 @@ async function getData() {
         animationDuration: 3000,
         theme: "light2",
         title: {
-
-          padding: 12,
+          horizontalAlign: "center",
+          verticalAlign: "top",
+          padding: 15,
           margin: 3.5,
-          fontSize: 26,
           fontFamily: "arial",
           fontStyle: "italic",
-          text: "Total Deaths"
+          text: "Total Deaths in Israel"
         },
         toolTip: {
           content: "<span style='\"' font-size: 10px;'\"'>{x}</span> <br/>{name}: {y}",
@@ -307,7 +335,15 @@ async function getData() {
         },
         axisY: {
           title: "Total Coronavirus Deaths",
-          margin: 20,
+          margin: 22,
+          labelFormatter: function (e) {
+            if (e.value === 0) {
+              return e.value;
+            }
+            else {
+              return CanvasJS.formatNumber(e.value, "#,##0,.k");
+            }
+          },
           stripLines: [{
             value: 50,
             color: "transparent",
@@ -390,49 +426,32 @@ async function getData() {
 
   })(data3);
 
-  (function (data2, data3, data4) {
+  (function (data4a) {
 
     var dataPoints = [];
 
 
-    // if API deaths/recoveries cases is 0 = put the last element instead
-    for (var i = 0; i <= data3.length - 1; i++) {
-      if (data3[i].Cases === 0 && i > 60) {
+    for (var i = 0; i <= data4a.length - 1; i++) {
 
-        data3[i].Cases = data3[i - 1].Cases;
-         
-      }
-
-
-      for (var i = 0; i <= data4.length - 1; i++) {
-        if (data4[i].Cases === 0 && i > 40) {
-
-          data4[i].Cases = data4[i - 1].Cases;
-         
-        }
-
-
-        dataPoints.push({ x: new Date(data3[i].Date), y: Number(data2[i].Cases) - ((data3[i].Cases) + (data4[i].Cases)) });
-        
-
-
-      }
+      dataPoints.push({ x: new Date(data4a[i].date), y: Number(data4a[i].total) });
     }
 
+    
     var chart3 = new CanvasJS.Chart("chartContainer3",
       {
         exportEnabled: true,
-        exportFileName: "Active Cases",
+        exportFileName: "Vaccinations data",
         animationEnabled: true,
         animationDuration: 3000,
         theme: "light2",
         title: {
-          padding: 12,
+          horizontalAlign: "center",
+          verticalAlign: "top",
+          padding: 15,
           margin: 3.5,
-          fontSize: 26,
           fontFamily: "arial",
           fontStyle: "italic",
-          text: "Active Cases",
+          text: "Total Vaccinations in Israel",
         },
         toolTip: {
           content: "<span style='\"' font-size: 10px;'\"'>{x}</span> <br/>{name}: {y}",
@@ -449,14 +468,14 @@ async function getData() {
           labelAngle: -15
         },
         axisY: {
-          title: "Total Currently Infected",
+          title: "Total vaccinations number",
           margin: 20,
           labelFormatter: function (e) {
             if (e.value === 0) {
               return e.value;
             }
             else {
-              return CanvasJS.formatNumber(e.value, "#,##0,.k");
+              return CanvasJS.formatNumber(e.value, "#,###,,.##M");
             }
           },
           stripLines: [{
@@ -481,16 +500,13 @@ async function getData() {
             type: "splineArea",
             fillOpacity: .6,
             showInLegend: true,
-            legendText: "Active",
+            legendText: "Vaccinations",
             lineColor: "#2196F3",
-            name: "Currently Infected",
+            name: "Vaccination Number",
             dataPoints: dataPoints
           }
         ]
       });
-
-
-
 
     setTimeout(() => {
 
@@ -531,10 +547,11 @@ async function getData() {
       }
 
     });
+  
 
 
 
-  })(data2, data3, data4);
+  })(data4a);
 
 }
 
@@ -567,8 +584,10 @@ const enableDarkMode = () => {
   const link = document.querySelector('.link');
   link.classList.add('link-dark');
 
-  const title = document.querySelector('.main-text-wp');
-  title.classList.add('head-dark');
+  const title = document.querySelectorAll('.main-text-wp');
+  for (let i=0; i < 2; i++ ) {
+    title[i].classList.add('head-dark');
+  }
 
   const column = document.querySelectorAll('.column');
   for (let i = 0; i < column.length; i++) {
@@ -591,8 +610,10 @@ const disableDarkMode = () => {
   const link = document.querySelector('.link');
   link.classList.remove('link-dark');
 
-  const title = document.querySelector('.main-text-wp');
-  title.classList.remove('head-dark');
+  const title = document.querySelectorAll('.main-text-wp');
+  for (let i=0; i < 2 ; i++ ) {
+    title[i].classList.remove('head-dark')
+  }
 
   const column = document.querySelectorAll('.column');
   for (let i = 0; i < column.length; i++) {
@@ -625,5 +646,6 @@ darkModeToggle.addEventListener('click', () => {
   }
 
 });
+
 
 

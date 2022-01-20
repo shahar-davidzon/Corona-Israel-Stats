@@ -11,45 +11,42 @@ html {
   font-family: 'Lato', 'Arial', sans-serif;
   text-rendering: optimizeLegibility;
 }
+
+
 .main-text-wp {
-  font-size: 21px;
+  font-size: 19px;
   font-style: italic;
   text-align: center;
   color:#2196F3 ;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
-  
 }
+
+
+
+
 .column {
     float: left;
     width: 40%;
     padding-left:  11px;
     padding-right:  11px;
-    padding-top:  11px;
-    padding-bottom:  20px;
-    margin-top: 3rem;
+    padding-top:  19px;
+    padding-bottom:  16px;
+    margin-top: 2.5rem;
     margin-right: 2rem;
     margin-left: 5rem;
+    margin-bottom: 2rem;
     box-shadow: 0 0 35px 0 rgba(73,80,87,.15);
     background-color: white;
  }
 .date,
-.population {
+.population,
+.population-world {
     text-align: center;
     font-size: 18px;
     right: 33rem;
     font-weight: 400;
  }
-
- .il-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 35px;
-  margin-top: 1rem;
-  
-  
-}
 
 
 .logo3 {
@@ -66,12 +63,16 @@ html {
   .cases,
   .deaths,
   .recoveries,
-  .active {
+  .active,
+  .cases-world,
+  .deaths-world,
+  .recoveries-world,
+  .active-world {
     font-size: 27px;
     font-weight: 700;
     margin-left: 1rem;
     margin-top: 3px;
-    
+  
   }
  .icon {
    float: right;
@@ -96,7 +97,15 @@ html {
  .cases-3,
  .deaths-3,
  .recoveries-3,
- .active-3 {
+ .active-3,
+ .cases-world-1,
+ .cases-world-3,
+ .deaths-world-1,
+ .deaths-world-3,
+ .recoveries-world-1,
+ .recoveries-world-3,
+ .active-world-1,
+ .active-world-3 {
    background-color: #1bb99a;
    padding: 7px;
    color: white;
@@ -105,14 +114,18 @@ html {
  }
 
  .cases-3,
- .deaths-3  {
+ .deaths-3,
+ .cases-world-3,
+ .deaths-world-3 {
    margin-left: 5rem;
  }
 
- .active-3 {
+ .active-3,
+ .active-world-3 {
    margin-left: 4.3rem;
  }
- .recoveries-3 {
+ .recoveries-3,
+ .recoveries-world-3 {
    margin-left: 2.8rem;
  }
 
@@ -316,6 +329,12 @@ input:checked + .slider:before {
 }
 .canvasjs-chart-toolbar div{
   right: -6rem !important;
+}
+.canvasjs-chart-toolbar button {
+  max-height: 25px;
+}
+.canvasjs-chart-toolbar {
+  left: 0px !important;
 }
 
 .canvasjs-chart-toolbar button,
